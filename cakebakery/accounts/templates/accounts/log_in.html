@@ -1,0 +1,20 @@
+{% extends 'accounts/components/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+
+            {{ message }}
+        </div>
+        {% endfor %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a class="btn btn-primary" href="{% url 'accounts:sign-up' %}">New User?</a>
+    </form>
+</div>
+{% endblock %}

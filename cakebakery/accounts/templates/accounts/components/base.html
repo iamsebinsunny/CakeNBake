@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Cake Bakery</title>
+</head>
+<body>
+    <style>
+        .col-md-4 {
+            margin-top: 10px;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'accounts:homepage' %}" style="color: aliceblue;"><h4> Cake Bakery</h4></a>
+          {% if user.username %}
+          <div class="buttons">
+            <a class="btn btn-light" class="btn btn-light"  >Hi {{user.username}}</a>
+            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:log-out' %}" >Logout</a>
+          </div>
+          {% else %}
+          <div class="buttons">
+            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:log-in' %}" >Sign In</a>
+            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:sign-up' %}" >New User?</a>
+          </div>
+          {% endif %}
+         
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1bt1dHNCX5ASp1MbG5S7kq6r3srJEJzR967bm" crossorigin="anonymous"></script>
+    </body>
+    </html> 
