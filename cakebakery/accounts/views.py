@@ -30,8 +30,10 @@ def log_in(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = authenticate(username = username,password=password)
-            if user:
-                login(request,user)      
+            login(request,user)  
+            if user.is_superuser:
+                return redirect(reverse('admin:dashboard'))
+            if user:    
                 return render(request,'accounts/index.html')
     return render(request,'accounts/log_in.html',context)
 
