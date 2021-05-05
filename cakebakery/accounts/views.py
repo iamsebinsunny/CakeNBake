@@ -3,12 +3,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
+from products.models import cake_list
 
 
 # Create your views here.
 
 def homepage(request):
-    return render(request,'accounts/index.html')
+    context = dict()
+    items = cake_list.objects.all()
+    context['items'] = items
+    return render(request,'accounts/index.html',context)
 
 def sign_up(request):
     form = UserCreationForm(request.POST or None)

@@ -14,7 +14,6 @@ def update_profile(request):
         first_name = request.POST.get('first_name')
         username = request.POST.get('username')
         email = request.POST.get('email')
-        password = request.POST.get('password')
         admin_user.username = username
         admin_user.first_name = first_name
         admin_user.email = email
