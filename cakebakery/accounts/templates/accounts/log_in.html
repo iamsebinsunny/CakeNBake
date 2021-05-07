@@ -3,18 +3,25 @@
 
 {% block content %}
 
-<div class="container">
-    <form method="post">
-        {% csrf_token %}
-        {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-
-            {{ message }}
-        </div>
-        {% endfor %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Login</button>
-        <a class="btn btn-primary" href="{% url 'accounts:sign-up' %}">New User?</a>
-    </form>
+<div class="header3  cid-rbb39CwPur" id="header3-6" data-sortbtn="btn-primary">
+    <div class="mbr-overlay" style="opacity: 0.2;">
+    </div>
+    <div class="container  d-flex justify-content-center" style="padding: 150px;">
+    <div class="row my-auto "  style="height: 400px;">
+        <form method="post" id="myform">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="row d-flex justify-content-around">
+                <div class="navbar-buttons mbr-section-btn">
+                    <a onclick="document.getElementById('myform').submit()" class="btn btn-sm btn-info display-4" >Login</a>
+                </div>
+                <div class="navbar-buttons mbr-section-btn">
+                    <a class="btn btn-sm btn-info display-4" href="{% url 'accounts:sign-up' %}">New User?</a>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+</div>
+
 {% endblock %}

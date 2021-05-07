@@ -3,12 +3,111 @@
 
 {% block content %}
 
-<div class="container">
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
+
+<div class="header3  cid-rbb39CwPur" id="header3-6" data-sortbtn="btn-primary">
+    <div class="mbr-overlay" style="opacity: 0.2;">
+    </div>
+    <div class="container  d-flex justify-content-center" style="padding: 150px;">
+        <div class="row centered-form">
+            <div class="col-12" style="height: 400px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <form id='myform' method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div id="div_id_firstname" class="form-group"> <label for="id_firstname" class=" requiredField">
+                                        </label>
+                                        <div class=""> <input type="text" placeholder="First name" name="first_name" maxlength="150"
+                                                autocapitalize="none" autocomplete="first_name" autofocus=""
+                                                class="textinput textInput form-control" required="" id="id_first_name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <div id="div_id_lastname" class="form-group"> <label for="id_lastname" class=" requiredField">
+                                            </label>
+                                            <div class=""> <input type="text" placeholder="Last name" name="last_name" maxlength="150"
+                                                    autocapitalize="none" autocomplete="last_name" autofocus=""
+                                                    class="textinput textInput form-control" required="" id="id_last_name">
+                                            </div>
+                                        </div>
+                            
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div id="div_id_username" class="form-group"> <label for="id_username"
+                                        class=" requiredField">
+                                       </label>
+                                    <div class=""> <input type="text" placeholder="Username" name="username"
+                                            maxlength="150" autocapitalize="none" autocomplete="username" autofocus=""
+                                            class="textinput textInput form-control" required="" id="id_username">
+                                        <small id="hint_id_username" class="form-text text-muted">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div id="div_id_email" class="form-group"> <label for="id_email"
+                                        class=" requiredField">
+                                       </label>
+                                    <div class=""> <input type="email" placeholder="Email Address" name="email"
+                                            maxlength="150" autocapitalize="none" autocomplete="email" autofocus=""
+                                            class="textinput textInput form-control" required="" id="id_email">
+                                        <small id="hint_id_email" class="form-text text-muted">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <div id="div_id_password1" class="form-group"> <label for="id_password1"
+                                                class=" requiredField">
+                                            </label>
+                                            <div class=""> <input type="password" placeholder="Password"
+                                                    name="password1" autocomplete="new-password"
+                                                    class="textinput textInput form-control" required=""
+                                                    id="id_password1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <div id="div_id_password2" class="form-group"> <label for="id_password2"
+                                                class=" requiredField">
+                                            </label>
+                                            <div class=""> <input type="password" placeholder="Confirm Password"
+                                                    name="password2" autocomplete="new-password"
+                                                    class="textinput textInput form-control" required=""
+                                                    id="id_password2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex justify-content-around">
+                                <div class="navbar-buttons mbr-section-btn">
+                                    <a onclick="document.getElementById('myform').submit()"
+                                        class="btn btn-sm btn-info display-4">Sign Up</a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

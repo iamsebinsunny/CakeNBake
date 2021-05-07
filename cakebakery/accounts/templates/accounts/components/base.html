@@ -1,42 +1,99 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+    <!-- Site made with Mobirise Website Builder v4.8.8, https://mobirise.com -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Cake Bakery</title>
+    <meta name="generator" content="Mobirise v4.8.8, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo2.png' %}" type="image/x-icon">
+    <meta name="description" content="">
+    <title>Cake Site</title>
+    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/gallery/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
+
 </head>
+
 <body>
-    <style>
-        .col-md-4 {
-            margin-top: 10px;
-        }
-    </style>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'accounts:homepage' %}" style="color: aliceblue;"><h4> Cake Bakery</h4></a>
-          {% if user.username %}
-          <div class="buttons">
-            <a class="btn btn-light" class="btn btn-light"  >Hi {{user.username}}</a>
-            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:log-out' %}" >Logout</a>
-          </div>
-          {% else %}
-          <div class="buttons">
-            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:log-in' %}" >Sign In</a>
-            <a class="btn btn-light" class="btn btn-light" href="{% url 'accounts:sign-up' %}" >New User?</a>
-          </div>
-          {% endif %}
-         
-        </div>
-    </nav>
+    <section class="menu cid-rbb1P7Oggj" once="menu" id="menu1-5" data-sortbtn="btn-primary">
+
+
+
+
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="navbar-brand">
+
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-2"
+                        href="{% url 'accounts:indexpage' %}"  > Cake N Bake
+                      </a>
+
+                </span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {% if title != 'indexpage' %}
+                {% if user.username %}
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="index.html#shop6-2">
+                            Hi {{user.first_name}}</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-info display-4" href="{% url 'accounts:log-out' %}">
+                        Logout</a></div>
+                {% else %}
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-info display-4" href="{% url 'accounts:log-in' %}">
+                    Sign In</a></div>
+
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-info display-4" href="{% url 'accounts:sign-up' %}">
+                        New User?</a></div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </nav>
+    </section>
+ 
+
 
     {% block content %}
 
     {% endblock %}
   
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1bt1dHNCX5ASp1MbG5S7kq6r3srJEJzR967bm" crossorigin="anonymous"></script>
-    </body>
-    </html> 
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'assets/mobirise-shop/script.js' %}"></script>
+  <script src="{% static 'assets/dropdown/js/script.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  <script src="{% static 'assets/gallery/player.min.js' %}"></script>
+  <script src="{% static 'assets/gallery/script.js' %}"></script>
+
+
+</body>
+
+</html>

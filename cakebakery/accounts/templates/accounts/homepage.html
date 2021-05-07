@@ -1,0 +1,102 @@
+{% extends 'accounts/components/base.html' %}
+{% load static %}
+{% block content %}
+
+ <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+        <div>
+            <div class="mbr-shop" shop__showsidebar="">
+                <!-- Shop Gallery -->
+                <div class="row col-md-12">
+                    <div class="col-xl-2 sidebar">
+                        {% include 'accounts/components/sidebar.html' %}
+                    </div>
+                    <div class="wrapper-shop-items col-xl-10">
+                        <div class="mbr-gallery-row">
+                            <div>
+                                <div class="shop-items">
+                                    <div class="mbr-gallery-item" data-tags="Jam" data-slide-to="0" data-seller="false"
+                                        data-price="9" data-oldprice="40">
+                                        <div class="item_overlay" data-toggle="modal"></div>
+                                        <div class="galleryItem" data-toggle="modal">
+                                            <div class="style_overlay"></div>
+                                            <div class="img_wraper"><img
+                                                    src="{% static 'assets/images/natalie-rhea-riggs-359429-unsplash-1-2000x1334-800x800.jpg' %}"
+                                                    alt="" title=""></div><span class="onsale mbr-fonts-style display-7"
+                                                data-onsale="false" style="display: none;">-50%</span>
+                                            <div class="sidebar_wraper">
+                                                <h4 class="item-title mbr-fonts-style mbr-text display-5">Strawberry Jam
+                                                </h4>
+                                                <div class="price-block"><span
+                                                        class="shop-item-price mbr-fonts-style display-5">$9</span><span
+                                                        class="oldprice mbr-fonts-style display-7"
+                                                        style="display: none;">$40</span></div>
+                                                <div class="card-description">It's a nice item to buy.&nbsp;
+                                                    <div>Add some info here.&nbsp;
+                                                    </div>
+                                                    <div><br>Product code: <strong>385DDF5p</strong></div>
+                                                </div>
+                                                <div class="mbr-section-btn" buttons="0" style="display: none;"><a
+                                                        href="{% url 'accounts:checkout' %}"
+                                                        class="btn btn-secondary display-7">Buy now!</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {% for item in items %}
+
+                                    <div class="mbr-gallery-item" >
+                                        <div class="item_overlay" data-toggle="modal"></div>
+                                        <div class="galleryItem" data-toggle="modal">
+                                            <div class="style_overlay"></div>
+                                            <div class="img_wraper">
+                                                <img src="/media/{{item.image}}" alt="image" >
+                                            </div>
+                                            <div class="sidebar_wraper">
+                                                <h4 class="item-title mbr-fonts-style mbr-text display-5">
+                                                    {{item.name}}
+                                                </h4>
+                                                <div class="price-block">
+                                                    <span class="shop-item-price mbr-fonts-style display-5">
+                                                        ${{item.price}}
+                                                    </span>
+                                                </div>
+                                                <div class="card-description">
+                                                    {{item.description}}.&nbsp;
+                                                    <div>
+                                                        Add some info here.&nbsp;
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="mbr-section-btn" buttons="0" style="display: none;">
+                                                    <a href="{% url 'accounts:checkout' %}" class="btn btn-secondary display-7">
+                                                        Buy now!
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% endfor %}
+                                    
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    
+                </div><!-- Lightbox -->
+                <div class="shopItemsModal_wraper" style="z-index: 100;">
+                    <div class="shopItemsModalBg"></div>
+                    <div class="shopItemsModal row">
+                        <div class="col-md-6 image-modal"></div>
+                        <div class="col-md-6 text-modal"></div>
+                        <div class="closeModal">
+                            <div class="close-modal-wrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% endblock %}  

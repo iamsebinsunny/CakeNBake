@@ -1,22 +1,74 @@
 {% extends 'accounts/components/base.html' %}
-
+{% load static %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            {% for item in items %}
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card" style="width: 18rem;">
-                    <img src="/media/{{item.image}}" class="card-img-top" alt="{{item.image}}" style="height:190px">
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.name}}</h5>
-                        <p class="card-text">{{item.description}}</p>
-                        <a href="{{item.id}}" class="btn btn-success">Buy Now @{{item.price}}</a>
-                    </div>
-                </div>
+<section class="header3 cid-rbb39CwPuR" id="header3-6" data-sortbtn="btn-primary">
+
+
+
+    <div class="mbr-overlay" style="opacity: 0.7;">
+    </div>
+
+    <div class="container align-left">
+        <div class="row justify-content-center">
+            <div class="media-container-column mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-5">We were first... And
+                    we're still the best!... </h1>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-1">
+                    Cake N Bake</h3>
+
+
+                <div class="mbr-section-btn align-center pt-3"><a class="btn btn-md btn-info display-4"
+                        href="{% url 'accounts:log-in' %}">Shop now</a></div>
             </div>
-            {% endfor %}
         </div>
     </div>
-    
+
+</section>
+
+
+<section class="features8 cid-rbaKgiAJ5r" id="features8-1" data-sortbtn="btn-primary">
+
+
+
+    <div class="mbr-overlay" style="opacity: 0.9; background-color: rgb(255, 255, 255);">
+    </div>
+    <div class="container-fluid justify-content-center">
+
+
+
+
+        <div class="row content-row pt-5">
+            <div class="card pl-3 pr-3 col-12 col-md-12 col-lg-12">
+                <div class="media pb-3 mx-auto">
+                    <div class="media-body">
+                        <h4 class="card-title py-2 align-left mbr-fonts-style display-2 align-self-center">
+                            About Us</h4>
+                    </div>
+                </div>
+                <div class="card-box align-left">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        Cake n Bake is a top notch cake and cake shop in Kerala. Ms. Proprietor Name,prepared culinary
+                        specialist has fabricated the brand on two fundamental standards – quality and the client.<br><br>
+
+                        Organization Name intends to serve the most innovative and mouth-watering cakes, to help make
+                        your festival considerably increasingly unique!<br><br>
+
+                        Organization Name represents considerable authority in redid wedding cakes, commemoration cakes,
+                        commitment cakes, kids birthday cakes, planner cakes, child shower cakes, subject cakes,
+                        photograph cakes and cupcakes, festivity cakes, single girl party cakes, cakes for gifting and
+                        then some.<br><br>
+
+                        Pick a structure you like, and after that browse tasty flavors, for example, the Belgian
+                        Chocolate, Red Velvet, Hazelnut, Salted Caramel and that’s just the beginning. You would then be
+                        able to take a load off, and anticipate that an awesome cake should touch base at your ideal
+                        area, on your picked date and time. </p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
 
 {% endblock %}

@@ -4,25 +4,31 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 from products.models import cake_list
+from .forms import SignUpForm
 
 
 # Create your views here.
+
+def indexpage(request):
+    context = dict()
+    context['title'] = 'indexpage'
+    return render(request,'accounts/index.html',context)
 
 def homepage(request):
     context = dict()
     items = cake_list.objects.all()
     context['items'] = items
-    return render(request,'accounts/index.html',context)
+    return render(request,'accounts/homepage.html',context)
 
 def sign_up(request):
-    form = UserCreationForm(request.POST or None)
+    form = SignUpForm(request.POST or None)
     context= dict()
     context["form"] = form
     if request.method == "POST":
-        if form.is_valid:
-            user = form.save()
+        if form.is_valid: 
+            user=form.save()
             login(request,user)      
-            return render(request,'accounts/index.html')
+            return render(request,'accounts/homepage.html')
     return render(request,'accounts/sign_up.html',context)
 
 def log_in(request):
@@ -38,10 +44,13 @@ def log_in(request):
             if user.is_superuser:
                 return redirect(reverse('admin:dashboard'))
             if user:    
-                return render(request,'accounts/index.html')
+                return redirect(reverse('accounts:homepage'))
     return render(request,'accounts/log_in.html',context)
 
 def log_out(request):
     logout(request)
     messages.success(request,'successfully logged out')
     return redirect(reverse('accounts:log-in'))
+
+def checkout(request):
+    return render(request,'accounts/delivery_details.html')
