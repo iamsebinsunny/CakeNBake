@@ -1,6 +1,7 @@
 {% extends 'accounts/components/base.html' %}
 {% load static %}
 {% block content %}
+{% load crispy_forms_tags %}
 
  <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
         <div>
@@ -10,8 +11,85 @@
                     <div class="col-xl-2 sidebar">
                         {% include 'accounts/components/sidebar.html' %}
                     </div>
-                    <div class="wrapper-shop-items col-xl-10">
-                        delivery form
+                    <div class="col-xl-1"></div>
+                    <div class="wrapper-shop-items col-xl-7">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    First Name
+                                    <div  class="form-group"> <label for="id_firstname" class=" requiredField">
+                                        </label>
+                                        <div class=""> <input type="text" value="{{customer.first_name}}" name="first_name" 
+                                                 autocomplete="first_name" autofocus="" 
+                                                class="textinput textInput form-control" required="" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    Last Name
+                                    <div  class="form-group"> <label for="id_firstname" class=" requiredField">
+                                        </label>
+                                        <div class=""> <input type="text" value="{{customer.last_name}}" name="last_name" 
+                                                 autocomplete="first_name" autofocus=""
+                                                class="textinput textInput form-control" required="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">    
+                                    Email
+                                    <div  class="form-group"> <label for="id_firstname" class=" requiredField">
+                                        </label>
+                                        <div class=""> <input type="text" value="{{customer.email}}" name="email" 
+                                                 autocomplete="first_name" autofocus=""
+                                                class="textinput textInput form-control" required="">
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div  class="form-group"> 
+                                        <div class="">
+                                                {{ form.house_name | as_crispy_field}}
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div  class="form-group"> 
+                                        <div class="">
+                                                {{ form.phone | as_crispy_field}}
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-6">
+                                    <div  class="form-group"> 
+                                        <div class="">
+                                                {{ form.pin | as_crispy_field}}
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div  class="form-group"> 
+                                        <div class="">
+                                                {{ form.location | as_crispy_field}}
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        
+                            <div class="navbar-buttons mbr-section-btn">
+                                <button class="btn btn-sm btn-info display-4" type="submit" >
+                                Pay Now
+                            </button>
+                            </div>
+                        </form>
                     </div>
                     
                 </div>

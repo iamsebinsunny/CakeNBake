@@ -14,33 +14,6 @@
                         <div class="mbr-gallery-row">
                             <div>
                                 <div class="shop-items">
-                                    <div class="mbr-gallery-item" data-tags="Jam" data-slide-to="0" data-seller="false"
-                                        data-price="9" data-oldprice="40">
-                                        <div class="item_overlay" data-toggle="modal"></div>
-                                        <div class="galleryItem" data-toggle="modal">
-                                            <div class="style_overlay"></div>
-                                            <div class="img_wraper"><img
-                                                    src="{% static 'assets/images/natalie-rhea-riggs-359429-unsplash-1-2000x1334-800x800.jpg' %}"
-                                                    alt="" title=""></div><span class="onsale mbr-fonts-style display-7"
-                                                data-onsale="false" style="display: none;">-50%</span>
-                                            <div class="sidebar_wraper">
-                                                <h4 class="item-title mbr-fonts-style mbr-text display-5">Strawberry Jam
-                                                </h4>
-                                                <div class="price-block"><span
-                                                        class="shop-item-price mbr-fonts-style display-5">$9</span><span
-                                                        class="oldprice mbr-fonts-style display-7"
-                                                        style="display: none;">$40</span></div>
-                                                <div class="card-description">It's a nice item to buy.&nbsp;
-                                                    <div>Add some info here.&nbsp;
-                                                    </div>
-                                                    <div><br>Product code: <strong>385DDF5p</strong></div>
-                                                </div>
-                                                <div class="mbr-section-btn" buttons="0" style="display: none;"><a
-                                                        href="{% url 'accounts:checkout' %}"
-                                                        class="btn btn-secondary display-7">Buy now!</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     {% for item in items %}
 
@@ -65,10 +38,11 @@
                                                     <div>
                                                         Add some info here.&nbsp;
                                                     </div>
+                                                   
                                                     
                                                 </div>
                                                 <div class="mbr-section-btn" buttons="0" style="display: none;">
-                                                    <a href="{% url 'accounts:checkout' %}" class="btn btn-secondary display-7">
+                                                    <a href="{% url 'accounts:checkout' item.id %}" class="btn btn-secondary display-7">
                                                         Buy now!
                                                     </a>
                                                 </div>

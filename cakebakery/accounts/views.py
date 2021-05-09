@@ -5,6 +5,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 from products.models import cake_list
 from .forms import SignUpForm
+from products.forms import make_order_form
 
 
 # Create your views here.
@@ -28,7 +29,7 @@ def sign_up(request):
         if form.is_valid: 
             user=form.save()
             login(request,user)      
-            return render(request,'accounts/homepage.html')
+            return redirect(reverse('accounts:homepage'))
     return render(request,'accounts/sign_up.html',context)
 
 def log_in(request):
@@ -52,5 +53,18 @@ def log_out(request):
     messages.success(request,'successfully logged out')
     return redirect(reverse('accounts:log-in'))
 
-def checkout(request):
-    return render(request,'accounts/delivery_details.html')
+def checkout(request,id):
+    context = dict()
+    customer=request.user
+    form = make_order_form(request.POST or None)
+    context['customer'] = customer
+    context['form'] = form
+    if request.method == "POST":
+        if form.is_valid: 
+            order=form.save(commit = False)    
+            order.user_id = customer.id
+            order.cake_list_id = id
+            order = order.save()
+            print(order) 
+            return redirect(reverse('accounts:homepage'))
+    return render(request,'accounts/delivery_details.html',context)

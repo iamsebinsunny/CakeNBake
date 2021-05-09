@@ -12,7 +12,7 @@ urlpatterns = [
     path('logout/',views.log_out,name="log-out"),
 
 
-    path('checkout/',views.checkout,name='checkout')
+    path('checkout/<int:id>',views.checkout,name='checkout')
     
 
 ]
