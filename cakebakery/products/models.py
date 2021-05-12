@@ -27,3 +27,11 @@ class orders(models.Model):
     date = models.DateTimeField(auto_now = True)
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     cake_list = models.ForeignKey(cake_list,on_delete = models.CASCADE)
+
+
+class messages(models.Model):
+    name = models.CharField(max_length=30)
+    email=models.EmailField(max_length=64)
+    message = models.CharField( max_length=250)
+    date = models.DateTimeField(auto_now = True)
+

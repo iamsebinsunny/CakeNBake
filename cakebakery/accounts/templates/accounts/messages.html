@@ -1,0 +1,54 @@
+{% extends 'accounts/components/base.html' %}
+
+
+{% block content %}
+
+<section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+    <div>
+        <div class="mbr-shop" shop__showsidebar="">
+          
+            <div class="row col-md-12">
+                <div class="col-xl-2 sidebar">
+                    {% include 'accounts/components/sidebar.html' %}
+                </div>
+                <div class="col-xl-1"></div>
+                <div class="wrapper-shop-items col-xl-7 ">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="form-1 " data-form-type="formoid">
+                                <h2 class="mbr-fonts-style mbr-section-title align-center display-2">Contact me to order custom cakes or for feedbacks</h2>
+                                
+                     
+                                <form class="mbr-form pt-4" action="" method="post" data-form-title="My Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="un/5lqa8Ff8mVSYMldE1blUpXHdX4OYmKtLOmfnJRKZ/mqEojQNS5fhadQI80f4jWzP2jZ5AxvGvi/osTz1r/n39xmIwZ8I9CqeI4S8mtKSsP+tUJdJGSX+RUqHLzZ50">
+                                    <div data-form-alert="" hidden="">Thanks for filling out the form!</div>
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3" data-for="name">
+                                            <input type="text" class="form-control input" name="name" data-form-field="Name" placeholder="Your Name*" required="" id="name-form3-e">
+                                        </div>
+                                        
+                                        <div class="col-lg-6 mb-3" data-for="email">
+                                            <input type="email" class="form-control input" name="email" data-form-field="Email" placeholder="Email*" required="" id="email-form3-e">
+                                        </div>
+                                        
+                                        <div class="col-md-12 mb-2" data-for="message">
+                                            <textarea class="form-control input" name="message" rows="3" data-form-field="Message" placeholder="Message" id="message-form3-e"></textarea>
+                                        </div>
+                                        <div class="navbar-buttons mbr-section-btn align-left"><button href="" type="submit" class="btn btn-sm btn-info display-4">Send Message</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                
+            </div>
+           
+        </div>
+    </div>
+ 
+ </section>
+
+
+
+ {% endblock %}

@@ -12,7 +12,10 @@ urlpatterns = [
     path('logout/',views.log_out,name="log-out"),
 
 
-    path('checkout/<int:id>',views.checkout,name='checkout')
+    path('category/<str:category_name>',views.category_filter,name='filter'),
+    path('checkout/<int:id>',views.checkout,name='checkout'),
+    path('myorders/',views.my_orders,name="my-orders"),
+    path('messages/',views.messages,name="messages"),
     
 
 ]

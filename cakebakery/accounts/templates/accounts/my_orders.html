@@ -1,0 +1,50 @@
+{% extends 'accounts/components/base.html' %}
+
+
+{% block content %}
+<section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+   <div>
+       <div class="mbr-shop" shop__showsidebar="">
+         
+           <div class="row col-md-12">
+               <div class="col-xl-2 sidebar">
+                   {% include 'accounts/components/sidebar.html' %}
+               </div>
+               <div class="col-xl-1"></div>
+               <div class="wrapper-shop-items ">
+                  <div class="table-responsive">
+                     <table class="table no-wrap">
+                         <thead>
+                             <tr>
+                                 <th class="border-top-0">#</th>
+                                 <th class="border-top-0">Date and Time</th>
+                                 <th class="border-top-0">Product </th>
+                                 <th class="border-top-0">Image</th>
+                                 <th class="border-top-0">Address</th>
+                                 
+                             </tr>
+                         </thead>
+                         <tbody>
+                             {% for order in orders %}
+                             <tr>
+                                 <td>1</td>
+                                 <td class="txt-oflo">{{order.date}}</td>
+                                 <td>Name: {{order.cake_list.name}} <br> Price: {{order.cake_list.price}}</td>
+                                 <td> <img src="/media/{{order.cake_list.image}}" style="height: 150px; width:150px"> </td>
+                                 <td class="txt-oflo">{{order.first_name}} &nbsp; {{order.last_name}} <br> {{order.house_name}}<br>{{order.location}}<br>Pin:{{order.pin}} <br> Phone: {{order.phone}} <br> Email: {{order.email}}</td>
+                                 
+                             </tr>
+                             {% endfor %}
+                         </tbody>
+                     </table>
+                 </div>
+               </div>
+               
+           </div>
+          
+       </div>
+   </div>
+
+</section>
+
+{% endblock %}

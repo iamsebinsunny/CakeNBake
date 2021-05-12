@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect,reverse
 from django.contrib.auth.models import User
-from products.models import orders
+from products.models import orders,messages
 
 # Create your views here.
 
 def dashboard(request):
     context = dict()
     context['orders'] = orders.objects.all().order_by('-date')
+    context['messages'] = messages.objects.all().order_by('-date')
     return render(request,'admin/dashboard.html',context)
 
 def update_profile(request):

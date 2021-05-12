@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
-from products.models import cake_list
+from products.models import cake_list,orders,messages
 from .forms import SignUpForm
-from products.forms import make_order_form
+from products.forms import make_order_form,message_form
 
 
 # Create your views here.
@@ -18,6 +18,12 @@ def indexpage(request):
 def homepage(request):
     context = dict()
     items = cake_list.objects.all()
+    context['items'] = items
+    return render(request,'accounts/homepage.html',context)
+
+def category_filter(request,category_name):
+    context = dict()
+    items = cake_list.objects.filter(category = category_name)
     context['items'] = items
     return render(request,'accounts/homepage.html',context)
 
@@ -50,8 +56,23 @@ def log_in(request):
 
 def log_out(request):
     logout(request)
-    messages.success(request,'successfully logged out')
     return redirect(reverse('accounts:log-in'))
+
+def my_orders(request):
+    context = dict()
+    user = request.user
+    myorders = orders.objects.filter(user_id = user.id).order_by('-date')
+    context['orders'] = myorders
+    return render(request,'accounts/my_orders.html',context)
+
+def messages(request):
+    context = dict()
+    form = message_form(request.POST or None)
+    context['form'] = form
+    if request.method == "POST":
+        if form.is_valid: 
+            order=form.save()
+    return render(request,'accounts/messages.html',context)
 
 def checkout(request,id):
     context = dict()
@@ -65,6 +86,5 @@ def checkout(request,id):
             order.user_id = customer.id
             order.cake_list_id = id
             order = order.save()
-            print(order) 
             return redirect(reverse('accounts:homepage'))
     return render(request,'accounts/delivery_details.html',context)
