@@ -1,0 +1,69 @@
+{% extends 'accounts/components/base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Buy cool new product</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+  <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+    <div>
+      <div class="mbr-shop" shop__showsidebar="">
+
+        <div class="row col-md-12">
+          <div class="col-xl-2 sidebar">
+            {% include 'accounts/components/sidebar.html' %}
+          </div>
+          <div class="col-xl-1"></div>
+          <div class="wrapper-shop-items col-xl-7">
+            <h4>Please do not exit the tab before completing the payment</h4>
+            <div>
+              <button class="btn btn-success"  id="checkout-button">Proceed</button>
+            </div>
+          </div>
+
+  </section>
+  {% csrf_token %}
+</body>
+  <script type="text/javascript">
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe("pk_test_51IqKbySADauyMaoOtapXqTTr0TccaOhUIaC7gRjbVQLWEVJ2i0eauSBT4x9YOF5djlXZHLYfgZXWPhcDmguR25WJ006Cu5CMXm");
+    var checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", function () {
+      fetch("{% url 'accounts:create-checkout-session' id %}", {
+        method: "POST",
+        headers:{
+            'X-CSRFToken':csrftoken
+        }
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (session) {
+          return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+          // If redirectToCheckout fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using error.message.
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function (error) {
+          console.error("Error:", error);
+        });
+    });
+  </script>
+</html>
+
+{% endblock %}  

@@ -3,6 +3,9 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
  <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
         <div>
             <div class="mbr-shop" shop__showsidebar="">
@@ -13,7 +16,7 @@
                     </div>
                     <div class="col-xl-1"></div>
                     <div class="wrapper-shop-items col-xl-7">
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post" id="myform" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -83,9 +86,8 @@
                                     </div>
                                 </div> 
                             </div>
-                        
                             <div class="navbar-buttons mbr-section-btn">
-                                <button class="btn btn-sm btn-info display-4" type="submit" >
+                                <button class="btn btn-sm btn-info display-4"  type="submit" >
                                 Pay Now
                             </button>
                             </div>
@@ -93,7 +95,6 @@
                     </div>
                     
                 </div>
-               
             </div>
         </div>
 

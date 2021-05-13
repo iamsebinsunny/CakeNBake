@@ -41,7 +41,7 @@
                                 <table class="table no-wrap">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0">No.</th>
                                             <th class="border-top-0">Account</th>
                                             <th class="border-top-0"> Date and Time</th>
                                             <th class="border-top-0">Product</th>
@@ -52,7 +52,7 @@
                                     <tbody>
                                         {% for order in orders %}
                                         <tr>
-                                            <td>1</td>
+                                            <td><num></td>
                                             <td class="txt-oflo">Name: {{order.user.first_name}} &nbsp; {{order.user.last_name}} <br> Username:{{order.user.username}} <br> Email:{{order.user.email}}</td>
                                             <td>{{order.date}}</td>
                                             <td>Name: {{order.cake_list.name}} <br> Price: {{order.cake_list.price}} <br> <img src="/media/{{order.cake_list.image}}" style="height: 100px; width:100px"> </td>

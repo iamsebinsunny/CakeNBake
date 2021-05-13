@@ -16,7 +16,7 @@
                      <table class="table no-wrap">
                          <thead>
                              <tr>
-                                 <th class="border-top-0">#</th>
+                                 <th class="border-top-0">No.</th>
                                  <th class="border-top-0">Date and Time</th>
                                  <th class="border-top-0">Product </th>
                                  <th class="border-top-0">Image</th>
@@ -27,7 +27,7 @@
                          <tbody>
                              {% for order in orders %}
                              <tr>
-                                 <td>1</td>
+                                 <td><num></td>
                                  <td class="txt-oflo">{{order.date}}</td>
                                  <td>Name: {{order.cake_list.name}} <br> Price: {{order.cake_list.price}}</td>
                                  <td> <img src="/media/{{order.cake_list.image}}" style="height: 150px; width:150px"> </td>

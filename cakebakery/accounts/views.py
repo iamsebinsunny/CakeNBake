@@ -86,5 +86,14 @@ def checkout(request,id):
             order.user_id = customer.id
             order.cake_list_id = id
             order = order.save()
-            return redirect(reverse('accounts:homepage'))
+            context['id'] = id
+            return render(request,'accounts/landingpage.html',context)
     return render(request,'accounts/delivery_details.html',context)
+
+def landing_page(request):
+    return render(request,'accounts/landingpage.html')
+
+def payment_cancelled(request):
+    cancel_order = orders.objects.latest('id')
+    cancel_order.delete()
+    return redirect(reverse('accounts:homepage'))

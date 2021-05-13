@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from products.views import CreateCheckoutSessionView
 
 app_name="accounts"
 
@@ -16,6 +17,11 @@ urlpatterns = [
     path('checkout/<int:id>',views.checkout,name='checkout'),
     path('myorders/',views.my_orders,name="my-orders"),
     path('messages/',views.messages,name="messages"),
+
+    path('landing-page/',views.landing_page,name="landing-page"),
+    path('create-checkout-session/<int:id>',CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
+    path('payment-cancelled/',views.payment_cancelled,name='payment-cancelled')
+
     
 
 ]
