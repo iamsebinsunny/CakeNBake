@@ -2,27 +2,27 @@
 {% load static %}
 {% block content %}
 
- <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
-        <div>
-            <div class="mbr-shop" shop__showsidebar="">
-                <!-- Shop Gallery -->
-                <div class="row col-md-12">
-                    <div class="col-xl-2 sidebar">
-                        {% include 'accounts/components/sidebar.html' %}
-                    </div>
-                    <div class="wrapper-shop-items col-xl-10">
-                        <div class="mbr-gallery-row">
-                            <div>
-                                <div class="shop-items">
-
+<section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+    <div>
+        <div class="mbr-shop" shop__showsidebar="">
+            <!-- Shop Gallery -->
+            <div class="row col-md-12">
+                <div class="col-xl-2 sidebar">
+                    {% include 'accounts/components/sidebar.html' %}
+                </div>
+                <div class="wrapper-shop-items col-xl-10">
+                    <div class="mbr-gallery-row">
+                        <div>
+                            <div class="shop-items">
+                                
                                     {% for item in items %}
 
-                                    <div class="mbr-gallery-item" >
+                                    <div class="mbr-gallery-item">
                                         <div class="item_overlay" data-toggle="modal"></div>
                                         <div class="galleryItem" data-toggle="modal">
                                             <div class="style_overlay"></div>
                                             <div class="img_wraper">
-                                                <img src="/media/{{item.image}}" alt="image" >
+                                                <img src="/media/{{item.image}}" alt="image">
                                             </div>
                                             <div class="sidebar_wraper">
                                                 <h4 class="item-title mbr-fonts-style mbr-text display-5">
@@ -30,34 +30,31 @@
                                                 </h4>
                                                 <div class="price-block">
                                                     <span class="shop-item-price mbr-fonts-style display-5">
-                                                        ${{item.price}}
+                                                        ₹ {{item.price}}
                                                     </span>
                                                 </div>
                                                 <div class="card-description">
                                                     {{item.description}}.&nbsp;
-                                                    <div>
-                                                        Add some info here.&nbsp;
-                                                    </div>
-                                                   
-                                                    
+                    
                                                 </div>
                                                 <div class="mbr-section-btn" buttons="0" style="display: none;">
-                                                    <a href="{% url 'accounts:checkout' item.id %}" class="btn btn-secondary display-7">
+                                                    <a href="{% url 'accounts:checkout' item.id %}"
+                                                        class="btn btn-secondary display-7">
                                                         Buy now!
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     {% endfor %}
-                                    
+
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    
+
                 </div><!-- Lightbox -->
                 <div class="shopItemsModal_wraper" style="z-index: 100;">
                     <div class="shopItemsModalBg"></div>
@@ -72,5 +69,5 @@
             </div>
         </div>
 
-    </section>
-    {% endblock %}  
+</section>
+{% endblock %}

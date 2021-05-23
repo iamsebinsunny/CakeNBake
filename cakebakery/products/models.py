@@ -5,14 +5,16 @@ from django.contrib.auth.models import User
 
 categories = [
     ('Select Category','Select Category'),
-    ('sample1','sample1'),
-    ('sample2','sample2'),
+    ('Popular flavours','Popular flavours'),
+    ('Design Cakes','Design Cakes'),
+    ('Jar Cakes','Jar Cakes'),
+    ('Brownies','Brownies')
 ]
 
 class cake_list(models.Model):
     name = models.CharField(max_length=30)
     category = models.CharField(max_length=30, choices = categories , default = 'Select Category')
-    description = models.CharField( max_length=60)
+    description = models.CharField( max_length=300)
     price = models.IntegerField(blank=True, null=True)
     image = models.ImageField(upload_to='images/')
 
@@ -27,6 +29,8 @@ class orders(models.Model):
     date = models.DateTimeField(auto_now = True)
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     cake_list = models.ForeignKey(cake_list,on_delete = models.CASCADE)
+    status = models.CharField(max_length=30, default='Pending')
+    order_status = models.CharField(max_length=30, default='True')
 
 
 class messages(models.Model):

@@ -20,7 +20,7 @@ class CreateCheckoutSessionView(View):
             line_items=[
                 {
                     'price_data': {
-                        'currency': 'usd',
+                        'currency': 'inr',
                         'unit_amount': product.price*100,
                         'product_data': {
                             'name': product.name ,
@@ -31,7 +31,7 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url=YOUR_DOMAIN + '/myorders/',
+            success_url=YOUR_DOMAIN + '/payment-successfull/',
             cancel_url=YOUR_DOMAIN + '/payment-cancelled/',
         )
         return JsonResponse({

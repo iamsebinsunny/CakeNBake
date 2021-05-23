@@ -3,10 +3,10 @@
 
 <div class="sidebar-background"></div>
 <div class="sidebar-block container ">
-    <h4 class="sidebar-title mbr-fonts-style mbr-text display-4" style="font-weight:600; font-size: larger;">Hi  {{user.first_name}}&nbsp;{{user.last_name}}</h4>
+    <h4 class="sidebar-title mbr-fonts-style mbr-text display-4" style="font-weight:600; font-size: larger;">Welcome  {{user.first_name}}&nbsp;{{user.last_name}}</h4>
     
     <div class=" mbr-section-btn pt-5" ><a class="btn btn-sm btn-info" href="{% url 'accounts:my-orders' %}">My Orders</a></div>
-    <div class=" mbr-section-btn " ><a class="btn btn-sm btn-info" href="{% url 'accounts:messages' %}">Message admin</a>
+    <div class=" mbr-section-btn " ><a class="btn btn-sm btn-info" href="{% url 'accounts:messages' %}">Message</a>
     </div>
     <div class=" mbr-section-btn">
          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle btn btn-sm btn-info" >categories</a>
@@ -15,13 +15,16 @@
             <a  class=" btn btn-sm btn-success"  href="{% url 'accounts:homepage' %}">All</a>
         </li>
         <li>
-            <a  class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'null' %}">Null</a>
+            <a  class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'Popular flavours' %}">Popular flavours</a>
         </li>
         <li>
-            <a class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'sample1' %}">Sample 1</a>
+            <a class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'Design Cakes' %}">Design Cakes</a>
         </li>
         <li>
-            <a class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'sample2' %}">Sample 2</a>
+            <a class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'Jar Cakes' %}">Jar Cakes</a>
+        </li>
+        <li>
+            <a class=" btn btn-sm btn-success" href="{% url 'accounts:filter' 'Brownies' %}">Brownies</a>
         </li>
     </ul>
     </div>

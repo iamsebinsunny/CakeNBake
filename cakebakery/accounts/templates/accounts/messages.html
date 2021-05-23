@@ -18,9 +18,17 @@
                             <div class="form-1 " data-form-type="formoid">
                                 <h2 class="mbr-fonts-style mbr-section-title align-center display-2">Contact me to order custom cakes or for feedbacks</h2>
                                 
-                     
-                                <form class="mbr-form pt-4" action="" method="post" data-form-title="My Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="un/5lqa8Ff8mVSYMldE1blUpXHdX4OYmKtLOmfnJRKZ/mqEojQNS5fhadQI80f4jWzP2jZ5AxvGvi/osTz1r/n39xmIwZ8I9CqeI4S8mtKSsP+tUJdJGSX+RUqHLzZ50">
-                                    <div data-form-alert="" hidden="">Thanks for filling out the form!</div>
+                                <form class="mbr-form pt-4" action="" method="post" data-form-title="My Mobirise Form"><input type="hidden" name="email">
+                                    <div >
+                                        {% for message in messages %}
+                                        <div class="alert alert-success alert-dismissible" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                          {{ message }}
+                                        </div>
+                                      {% endfor %}
+                                    </div>
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="col-lg-6 mb-3" data-for="name">

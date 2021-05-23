@@ -7,18 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
-    <meta name="description"
-        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
-    <meta name="robots" content="noindex,nofollow">
     <title>Admin | Dashboard</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="shortcut icon" href="{% static 'assets/images/logo2.png' %}" type="image/x-icon">
-    <!-- Custom CSS -->
-    <link href="{%  static 'plugins/bower_components/chartist/dist/chartist.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{%  static 'plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css' %}">
     <!-- Custom CSS -->
     <link href="{%  static 'css/style.min.css' %}" rel="stylesheet">
 </head>
@@ -95,7 +87,7 @@
                         <!-- ============================================================== -->
                         <li>
                             <a class="profile-pic" href="{% url 'accounts:log-out' %}">
-                                <img src="{% static 'plugins/images/users/varun.jpg' %}" alt="user-img" width="36"
+                                <img src="{% static 'plugins/images/users/d1.jpg' %}" alt="user-img" width="36"
                                     class="img-circle"><span class="text-white font-medium">Log out</span></a>
                         </li>
                         <!-- ============================================================== -->
@@ -122,28 +114,28 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'admin:dashboard' %}"
                                 aria-expanded="false">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Dashboard</span>
+                                <span class="hide-menu"><h4 class="page-title">Dashboard</h4></span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'admin:update-profile' %}"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Admin Profile</span>
+                                <span class="hide-menu"><h4 class="page-title">Admin Profile</h4></span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'admin:user-list' %}"
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
-                                <span class="hide-menu">User Table</span>
+                                <span class="hide-menu"><h4 class="page-title" >User Table</h4></span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'admin:add-cake' %}"
                                 aria-expanded="false">
                                 <i class="fa fa-columns" aria-hidden="true"></i>
-                                <span class="hide-menu">Product Table</span>
+                                <span class="hide-menu"><h4 class="page-title" >Product Table</h4></span>
                             </a>
                         </li>
                     </ul>
@@ -180,9 +172,6 @@
     <!--Custom JavaScript -->
     <script src="{%  static 'js/custom.js' %}"></script>
     <!--This page JavaScript -->
-    <!--chartis chart-->
-    <script src="{%  static 'plugins/bower_components/chartist/dist/chartist.min.js' %}"></script>
-    <script src="{%  static 'plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
     <script src="{%  static 'js/pages/dashboards/dashboard1.js' %}"></script>
 </body>
 

@@ -27,6 +27,11 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
         <!-- ============================================================== -->
         <!-- Start Page Content -->
         <!-- ============================================================== -->
@@ -35,7 +40,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-primary">Add Item</button>
+                <button type="submit" class="btn btn-success">Add Item</button>
             </form>
         </div>
         <div class="row">
@@ -50,7 +55,6 @@
                                     <th class="border-top-0">Image</th>
                                     <th class="border-top-0">Name</th>
                                     <th class="border-top-0">Category</th>
-                                    <th class="border-top-0">Description</th>
                                     <th class="border-top-0">Price</th>
                                     <th class="border-top-0">Actions</th>
                                 </tr>
@@ -62,8 +66,7 @@
                                     <td><img src="/media/{{list.image}}" style="height: 150px;width: 250px" alt="image"></td>
                                     <td>{{list.name}}</td>
                                     <td>{{list.category}}</td>
-                                    <td>{{list.description}}</td>
-                                    <td>{{list.price}}</td>
+                                    <td>₹ {{list.price}}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{% url 'admin:update-cake' list.id %}">Edit</a>
                                         <a class="btn btn-danger" href="{% url 'admin:delete-cake' list.id %}">Delete</a>
@@ -90,15 +93,6 @@
     </div>
     <!-- ============================================================== -->
     <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
-            href="https://www.wrappixel.com/">wrappixel.com</a>
-    </footer>
-    <!-- ============================================================== -->
-    <!-- End footer -->
     <!-- ============================================================== -->
 
     {% endblock %}
